@@ -1,6 +1,6 @@
 package stduy.bookmanagement;
 
-public class Book { // 상태가 있는 클래스 (Vo)
+public class Book { 
 	private String title;
 	private String writer;
 	private String publisher;
