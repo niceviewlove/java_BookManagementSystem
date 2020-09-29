@@ -9,5 +9,8 @@ create table books(
 ); 
 
 desc books;
-drop table books;
+--drop table books;
 select * from books;
+
+alter table books modify author varchar(15) not null;
+alter table books modify publisher varchar(15) not null;
