@@ -1,15 +1,15 @@
-package stduy.bookmanagement;
+package study.bookmanagement;
 
 public class Book { 
 	private String title;
-	private String writer;
+	private String author;
 	private String publisher;
-	private int year;
-	private int price;
+	private String year;
+	private String price;
 	
-	public Book(String title, String writer, String publisher, int year, int price) {
+	public Book(String title, String author, String publisher, String year, String price) {
 		this.title = title;
-		this.writer = writer;
+		this.author = author;
 		this.publisher = publisher;
 		this.year = year;
 		this.price = price;
@@ -23,12 +23,12 @@ public class Book {
 		this.title = title;
 	}
 
-	public String getWriter() {
-		return writer;
+	public String getAuthor() {
+		return author;
 	}
 
-	public void setWriter(String writer) {
-		this.writer = writer;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 	public String getPublisher() {
@@ -39,19 +39,19 @@ public class Book {
 		this.publisher = publisher;
 	}
 
-	public int getYear() {
+	public String getYear() {
 		return year;
 	}
 
-	public void setYear(int year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 
-	public int getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 	

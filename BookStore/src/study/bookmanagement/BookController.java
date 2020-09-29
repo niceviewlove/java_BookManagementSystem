@@ -1,4 +1,4 @@
-package stduy.bookmanagement;
+package study.bookmanagement;
 
 public class BookController { 
 }
