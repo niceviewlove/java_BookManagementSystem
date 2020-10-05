@@ -16,6 +16,8 @@ public class NonSpaceValidator implements Validator<String> {
 			if(!Pattern.matches("^\\S+", content)) {
 				System.out.println(content);
 				throw new ValidateException("올바르지 않은 입력");
+			} else {
+				System.out.println(content+" 통과");
 			}
 		} catch(Exception e) {
 			throw new ValidateException("Exceptionk 발생! 이유는 찾아봐", e);

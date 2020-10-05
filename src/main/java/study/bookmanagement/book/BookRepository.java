@@ -31,7 +31,7 @@ public class BookRepository {
 	
 	public void create(Book book) {
 		try {
-			String query = "INSERT INTO TEST VALUES(?, ?, ?, ?, ?)";
+			String query = "INSERT INTO BOOKS(title, author, stock, year, price) VALUES(?, ?, ?, ?, ?)";
 
 //			stmt = conn.createStatement();
 			pstm = conn.prepareStatement(query);
@@ -43,7 +43,7 @@ public class BookRepository {
 			pstm.setInt(3, book.getStock());
 			pstm.setInt(4, book.getYear());
 			pstm.setInt(5, book.getPrice());
-			pstm.executeQuery();
+			pstm.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {

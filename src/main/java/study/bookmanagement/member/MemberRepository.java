@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.mysql.jdbc.Statement;
+
 public class MemberRepository {
 	Connection conn = null;
 	PreparedStatement pstm = null;
@@ -27,7 +29,7 @@ public class MemberRepository {
 	
 	public void create(Member member) {
 		try {
-			String query = "INSERT INTO TEST VALUES(?, ?, ?, ?, ?)";
+			String query = "INSERT INTO MEMBERS(name, gender, email, age, phone) VALUES(?, ?, ?, ?, ?)";
 
 			pstm = conn.prepareStatement(query);
 			pstm.setString(1, member.getName());
@@ -35,7 +37,7 @@ public class MemberRepository {
 			pstm.setString(3, member.getEmail());
 			pstm.setInt(4, member.getAge());
 			pstm.setString(5, member.getPhone());
-			pstm.executeQuery();
+			pstm.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
