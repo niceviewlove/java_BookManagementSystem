@@ -6,7 +6,7 @@ public class EmailValidator implements Validator<String> {
 	@Override
 	public void validate(String content) {
 		try {
-			if(!Pattern.matches("^[0-9a-zA-Z][0-9a-zA-Z\\_\\-\\.\\+]+[0-9a-zA-Z]@[0-9a-zA-Z][0-9a-zA-Z\\_\\-]*[0-9a-zA-Z](\\.[a-zA-Z]{2,6}){1,2}$\r\n" + "\r\n", content)) {
+			if(!Pattern.matches("^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$", content)) {
 				throw new ValidateException("올바르지 않은 이메일 형식");
 			}
 		} catch(Exception e) {
