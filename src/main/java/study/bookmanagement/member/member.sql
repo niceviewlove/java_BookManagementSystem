@@ -10,4 +10,5 @@ create table members(
 
 desc members;
 select * from members;
+
 drop table members;
