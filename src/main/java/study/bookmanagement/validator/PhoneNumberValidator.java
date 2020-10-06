@@ -1,5 +1,4 @@
 package study.bookmanagement.validator;
-
 import java.util.regex.Pattern;
 
 /**
@@ -17,6 +16,5 @@ public class PhoneNumberValidator implements Validator<String>{
 		} catch(Exception e) {
 			throw new ValidateException("Exception 발생! 이유는 찾아봐", e);
 		}
-		
 	}
 }

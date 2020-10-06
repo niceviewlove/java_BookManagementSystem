@@ -1,9 +1,8 @@
 package study.bookmanagement.validator;
-
 import java.util.regex.Pattern;
 
 public class EmailValidator implements Validator<String> {
-
+	
 	@Override
 	public void validate(String content) {
 		try {
@@ -14,5 +13,4 @@ public class EmailValidator implements Validator<String> {
 			throw new ValidateException("Exception 발생! 이유는 찾아봐", e);
 		}
 	}
-
 }

@@ -1,5 +1,4 @@
 package study.bookmanagement.validator;
-
 import study.bookmanagement.member.Member;
 
 public class MemberValidator implements Validator<Member>{
@@ -17,6 +16,4 @@ public class MemberValidator implements Validator<Member>{
 		plusNumberValidator.validate(member.getAge());
 		phoneNumberValidator.validate(member.getPhone());
 	}
-	
-
 }

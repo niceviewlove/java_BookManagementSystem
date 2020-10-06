@@ -17,5 +17,4 @@ public class NameValidator implements Validator<String> {
 			throw new ValidateException("Exception 발생! 이유는 찾아봐", e);
 		}
 	}
-
 }
