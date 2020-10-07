@@ -34,8 +34,8 @@ public class BookController {  //유효성 체크
 	
 	public void remove(String bookId) {
 		Integer id = Integer.parseInt(bookId);
-		Validator<Integer> plusValidater = new PlusNumberValidator();
-		plusValidater.validate(id);
+		Validator<Integer> plusNumberValidater = new PlusNumberValidator();
+		plusNumberValidater.validate(id);
 		bookService.removeBook(id);
 	}
 	
