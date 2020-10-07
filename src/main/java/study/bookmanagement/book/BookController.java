@@ -21,13 +21,15 @@ public class BookController {  //유효성 체크
 		bookService.registerBook(book);
 	};
 	
-	public void update(Integer bookId, String title, String author, String stock, String year, String price) {
+	public void update(String bookId, String title, String author, String stock, String year, String price) {
+		int bookIdNumber = Integer.parseInt(bookId);
 		int stockNumber = Integer.parseInt(stock);
 		int yearNumber = Integer.parseInt(year);
 		int priceNumber = Integer.parseInt(price);
 		
+		
 		Book book = new Book(title, author, stockNumber, yearNumber, priceNumber);
-		book.setId(bookId);
+		book.setId(bookIdNumber);
 		bookValidator.validate(book);
 		bookService.updateBook(book);
 	};
@@ -42,8 +44,8 @@ public class BookController {  //유효성 체크
 	public void showBookList() {
 		List<Book> bookList = bookService.showBookList();
 		
+		System.out.println("제목\t\t저자\t\t재고\t\t출판년도\t\t가격");
 		for(Book book : bookList) {
-			System.out.println("제목\t\t저자\t\t재고\t\t출판년도\t\t가격");
 			System.out.println(book.getTitle() + "\t\t" + book.getAuthor() + "\t\t" +
 			    book.getStock() + "\t\t" + book.getYear() + "\t\t" + book.getPrice());
 		}

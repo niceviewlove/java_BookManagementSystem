@@ -32,12 +32,8 @@ public class BookRepository {
 	public void create(Book book) {
 		try {
 			String query = "INSERT INTO BOOKS(title, author, stock, year, price) VALUES(?, ?, ?, ?, ?)";
-
-//			stmt = conn.createStatement();
 			pstm = conn.prepareStatement(query);
-//			sql = "insert into books(title, author, stock, year, price)"
-//			+ "values('"+book.getTitle()+"','" + book.getAuthor() + "','" + book.getStock() + "','" 
-//			+ book.getYear() + "','" + book.getPrice() + "')";
+			
 			pstm.setString(1, book.getTitle());
 			pstm.setString(2, book.getAuthor());
 			pstm.setInt(3, book.getStock());
@@ -47,9 +43,9 @@ public class BookRepository {
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if(stmt != null) {
+			if(pstm != null) {
 				try {
-					stmt.close();
+					pstm.close();
 				} catch(SQLException e) {}
 			}
 		}
@@ -57,17 +53,22 @@ public class BookRepository {
 	
 	public void update(Book book) {
 		try {
-			stmt = conn.createStatement();
-			//TODO 쿼리문 구현해야 한다.
-//			sql = "update books set " + updateType + "='" + content +"' where book_id = "+ bookId;
-			stmt.execute(sql);
-			System.out.println(sql);
+			String query = "update books set title=?, author=?, stock=?, year=?, price=? where book_id=?";
+			pstm = conn.prepareStatement(query);
+			
+			pstm.setString(1, book.getTitle());
+			pstm.setString(2, book.getAuthor());
+			pstm.setInt(3, book.getStock());
+			pstm.setInt(4, book.getYear());
+			pstm.setInt(5, book.getPrice());
+			pstm.setInt(6, book.getId());
+			pstm.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if(stmt != null) {
+			if(pstm != null) {
 				try {
-					stmt.close();
+					pstm.close();
 				} catch(SQLException e) {}
 			}
 		}
@@ -75,15 +76,17 @@ public class BookRepository {
 	
 	public void deleteById(Integer bookId) {
 		try {
-			stmt = conn.createStatement();
-			sql = "delete from books "+"where book_id = "+ bookId;
-			stmt.execute(sql);
+			String query = "delete from books where book_id=?";
+			pstm = conn.prepareStatement(query);
+			
+			pstm.setInt(1, bookId);
+			pstm.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if(stmt != null) {
+			if(pstm != null) {
 				try {
-					stmt.close();
+					pstm.close();
 				} catch(SQLException e) {}
 			}
 		}
@@ -92,9 +95,10 @@ public class BookRepository {
 	public ArrayList<Book> findByAll() {
 		ArrayList<Book> bookList = new ArrayList<Book>();
 		try {
-			stmt = conn.createStatement();
-			sql = "select * from books";
-			rs = stmt.executeQuery(sql);
+			String query = "select * from books";
+			
+			pstm = conn.prepareStatement(query);
+			rs = pstm.executeQuery();
 			
 			while(rs.next()) {
 				Book book = new Book();
@@ -116,9 +120,12 @@ public class BookRepository {
 
 	public Book findOneById(Integer bookId) {
 		try {
-			stmt = conn.createStatement();
-			String sql = "select * from books where book_id=" + bookId;
-			rs = stmt.executeQuery(sql);
+			String query = "select * from books where book_id=?";
+			pstm = conn.prepareStatement(query);
+
+			pstm.setInt(1, bookId);
+			rs = pstm.executeQuery();
+			
 			if(rs.next()) {
 				Book book = new Book();
 				book.setTitle(rs.getString("title"));
@@ -131,9 +138,9 @@ public class BookRepository {
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
-			if(stmt != null) {
+			if(pstm != null) {
 				try {
-					stmt.close();
+					pstm.close();
 				} catch(SQLException e) {}
 			}
 		}
