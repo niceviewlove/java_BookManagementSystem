@@ -7,10 +7,12 @@ import java.util.regex.Pattern;
  */
 public class PhoneNumberValidator implements Validator<String>{
 	private HasValueValidator hasValueValidator = new HasValueValidator();
+	private PhoneLengthValidator phoneLengthValidator = new PhoneLengthValidator();
 	
 	@Override
 	public void validate(String content) {
 		hasValueValidator.validate(content, "phoneNumber");
+		phoneLengthValidator.validate(content);
 		
 		try {
 			if(!Pattern.matches("^01(?:0|1|[6-9])(?:\\d{3}|\\d{4})\\d{4}$", content)) {

@@ -7,10 +7,13 @@ import java.util.regex.Pattern;
  */
 public class NameValidator implements Validator<String> {
 	private HasValueValidator hasValueValidator = new HasValueValidator();
+	private NameLengthValidator nameLengthValidator = new NameLengthValidator();
 	
 	@Override
 	public void validate(String content) {
 		hasValueValidator.validate(content, "name");
+		nameLengthValidator.validate(content);
+		
 		try {
 			if(!Pattern.matches("^[가-힣]+$|^[a-zA-Z\\s]+$", content)) {
 				throw new ValidateException("올바르지 않은 이름 입력");
