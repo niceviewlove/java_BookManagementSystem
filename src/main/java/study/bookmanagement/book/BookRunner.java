@@ -3,11 +3,10 @@ package study.bookmanagement.book;
 public class BookRunner {
     public static void main(String[] args) {
    	 BookController controller = new BookController();
-   	 controller.register(args[0], args[1], args[2], args[3], args[4]);
-//   	 controller.registerCheck(args[0], args[1], args[2], args[3], args[4]);
-//   	 controller.updateCheck(args[0], args[1], args[2]);
-//   	 controller.removeCheck(args[0]);
-//   	 controller.showBookList();
+//   	 controller.register(args[0], args[1], args[2], args[3], args[4]);
+//   	 controller.update(args[0], args[1], args[2], args[3], args[4], args[5]);
+//   	 controller.remove(args[0]);
+   	 controller.showBookList();
     }
 }    
 

@@ -6,9 +6,11 @@ import java.util.regex.Pattern;
  * @author Sion
  */
 public class NameValidator implements Validator<String> {
-
+	private HasValueValidator hasValueValidator = new HasValueValidator();
+	
 	@Override
 	public void validate(String content) {
+		hasValueValidator.validate(content, "name");
 		try {
 			if(!Pattern.matches("^[가-힣]+$|^[a-zA-Z\\s]+$", content)) {
 				throw new ValidateException("올바르지 않은 이름 입력");

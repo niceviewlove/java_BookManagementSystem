@@ -6,9 +6,12 @@ import java.util.regex.Pattern;
  * @author Sion
  */
 public class GenderValidator implements Validator<String>{
-
+	private HasValueValidator hasValueValidator = new HasValueValidator();
+	
 	@Override
 	public void validate(String content) {
+		hasValueValidator.validate(content, "gender");
+		
 		try {
 			if(!Pattern.matches("F|M", content)) {
 				throw new ValidateException("올바르지 않은 성별 입력");

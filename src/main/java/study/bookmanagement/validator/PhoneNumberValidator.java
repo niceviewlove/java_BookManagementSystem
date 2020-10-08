@@ -6,9 +6,12 @@ import java.util.regex.Pattern;
  * @author Sion
  */
 public class PhoneNumberValidator implements Validator<String>{
-
+	private HasValueValidator hasValueValidator = new HasValueValidator();
+	
 	@Override
 	public void validate(String content) {
+		hasValueValidator.validate(content, "phoneNumber");
+		
 		try {
 			if(!Pattern.matches("^01(?:0|1|[6-9])(?:\\d{3}|\\d{4})\\d{4}$", content)) {
 				throw new ValidateException("올바르지 않은 휴대폰 입력 형식");
