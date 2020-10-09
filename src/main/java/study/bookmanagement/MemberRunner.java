@@ -1,4 +1,6 @@
-package study.bookmanagement.member;
+package study.bookmanagement;
+
+import study.bookmanagement.controller.MemberController;
 
 public class MemberRunner {
 	public static void main(String[] args) {

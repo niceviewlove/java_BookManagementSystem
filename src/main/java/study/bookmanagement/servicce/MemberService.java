@@ -1,6 +1,8 @@
-package study.bookmanagement.member;
+package study.bookmanagement.servicce;
 
 import java.util.List;
+
+import study.bookmanagement.repository.MemberRepository;
 
 public class MemberService {
 	MemberRepository memberRepository = new MemberRepository();

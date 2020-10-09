@@ -1,4 +1,4 @@
-package study.bookmanagement.validator;
+package study.bookmanagement.util.validator;
 import java.util.regex.Pattern;
 
 public class EmailValidator implements Validator<String> {

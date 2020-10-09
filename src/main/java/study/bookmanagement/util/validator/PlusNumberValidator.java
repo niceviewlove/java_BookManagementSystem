@@ -1,4 +1,4 @@
-package study.bookmanagement.validator;
+package study.bookmanagement.util.validator;
 
 public class PlusNumberValidator implements Validator<Integer> {
 	private HasValueValidator hasValueValidator = new HasValueValidator();

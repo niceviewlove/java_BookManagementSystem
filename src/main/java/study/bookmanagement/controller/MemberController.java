@@ -1,9 +1,10 @@
-package study.bookmanagement.member;
+package study.bookmanagement.controller;
 import java.util.List;
 
-import study.bookmanagement.validator.MemberValidator;
-import study.bookmanagement.validator.PlusNumberValidator;
-import study.bookmanagement.validator.Validator;
+import study.bookmanagement.servicce.Member;
+import study.bookmanagement.servicce.MemberService;
+import study.bookmanagement.util.validator.PlusNumberValidator;
+import study.bookmanagement.util.validator.Validator;
 
 public class MemberController {
 	private MemberValidator memberValidator = new MemberValidator();

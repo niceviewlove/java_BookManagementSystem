@@ -1,5 +1,11 @@
-package study.bookmanagement.validator;
-import study.bookmanagement.member.Member;
+package study.bookmanagement.controller;
+import study.bookmanagement.servicce.Member;
+import study.bookmanagement.util.validator.EmailValidator;
+import study.bookmanagement.util.validator.GenderValidator;
+import study.bookmanagement.util.validator.NameValidator;
+import study.bookmanagement.util.validator.PhoneNumberValidator;
+import study.bookmanagement.util.validator.PlusNumberValidator;
+import study.bookmanagement.util.validator.Validator;
 
 public class MemberValidator implements Validator<Member>{
 	private NameValidator nameValidator = new NameValidator();

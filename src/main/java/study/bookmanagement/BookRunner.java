@@ -1,4 +1,6 @@
-package study.bookmanagement.book;
+package study.bookmanagement;
+
+import study.bookmanagement.controller.BookController;
 
 public class BookRunner {
     public static void main(String[] args) {

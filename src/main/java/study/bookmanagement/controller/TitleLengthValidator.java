@@ -1,4 +1,7 @@
-package study.bookmanagement.validator;
+package study.bookmanagement.controller;
+
+import study.bookmanagement.util.validator.StringLengthValidator;
+import study.bookmanagement.util.validator.ValidateException;
 
 public class TitleLengthValidator extends StringLengthValidator {
 	@Override

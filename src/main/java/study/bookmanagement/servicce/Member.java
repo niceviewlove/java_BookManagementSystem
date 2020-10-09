@@ -1,4 +1,4 @@
-package study.bookmanagement.member;
+package study.bookmanagement.servicce;
 
 public class Member {
 	private Integer id;

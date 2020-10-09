@@ -1,4 +1,4 @@
-package study.bookmanagement.member;
+package study.bookmanagement.repository;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -6,7 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import study.bookmanagement.book.Book;
+import study.bookmanagement.servicce.Book;
+import study.bookmanagement.servicce.Member;
 
 public class MemberRepository {
 	Connection conn = null;

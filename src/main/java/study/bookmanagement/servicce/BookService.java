@@ -1,6 +1,8 @@
-package study.bookmanagement.book;
+package study.bookmanagement.servicce;
 
 import java.util.List;
+
+import study.bookmanagement.repository.BookRepository;
 
 public class BookService {
 	BookRepository bookRepository = new BookRepository();
