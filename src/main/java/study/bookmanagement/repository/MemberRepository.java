@@ -6,8 +6,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import study.bookmanagement.servicce.Book;
-import study.bookmanagement.servicce.Member;
+import study.bookmanagement.service.Book;
+import study.bookmanagement.service.Member;
 
 public class MemberRepository {
 	Connection conn = null;

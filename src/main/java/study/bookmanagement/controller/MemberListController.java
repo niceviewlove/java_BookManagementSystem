@@ -4,8 +4,8 @@ import java.util.List;
 
 import study.bookmanagement.HttpRequest;
 import study.bookmanagement.HttpResponse;
-import study.bookmanagement.servicce.Member;
-import study.bookmanagement.servicce.MemberService;
+import study.bookmanagement.service.Member;
+import study.bookmanagement.service.MemberService;
 
 public class MemberListController implements Controller{
 	private MemberService memberService = new MemberService();

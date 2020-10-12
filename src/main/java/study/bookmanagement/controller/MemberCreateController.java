@@ -2,8 +2,8 @@ package study.bookmanagement.controller;
 
 import study.bookmanagement.HttpRequest;
 import study.bookmanagement.HttpResponse;
-import study.bookmanagement.servicce.Member;
-import study.bookmanagement.servicce.MemberService;
+import study.bookmanagement.service.Member;
+import study.bookmanagement.service.MemberService;
 import study.bookmanagement.util.NumberUtils;
 import study.bookmanagement.util.StringUtils;
 

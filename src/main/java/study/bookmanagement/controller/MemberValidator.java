@@ -1,5 +1,5 @@
 package study.bookmanagement.controller;
-import study.bookmanagement.servicce.Member;
+import study.bookmanagement.service.Member;
 import study.bookmanagement.util.validator.EmailValidator;
 import study.bookmanagement.util.validator.GenderValidator;
 import study.bookmanagement.util.validator.NameValidator;

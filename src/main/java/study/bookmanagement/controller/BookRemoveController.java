@@ -2,7 +2,7 @@ package study.bookmanagement.controller;
 
 import study.bookmanagement.HttpRequest;
 import study.bookmanagement.HttpResponse;
-import study.bookmanagement.servicce.BookService;
+import study.bookmanagement.service.BookService;
 import study.bookmanagement.util.NumberUtils;
 import study.bookmanagement.util.validator.PlusNumberValidator;
 import study.bookmanagement.util.validator.Validator;

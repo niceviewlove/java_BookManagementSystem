@@ -1,4 +1,4 @@
-package study.bookmanagement.servicce;
+package study.bookmanagement.service;
 
 import java.util.List;
 
@@ -34,9 +34,9 @@ public class BookService {
 		return bookList;
 	}
 
-	public Book findOne(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Book findOneBook(int id) {
+		Book book = bookRepository.findOneById(id);
+		return book;
 	}
 }
 

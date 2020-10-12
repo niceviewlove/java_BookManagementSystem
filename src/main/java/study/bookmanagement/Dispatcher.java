@@ -25,7 +25,7 @@ public class Dispatcher {
 		} else if (httpRequest.getUrl().equals("/books/update") && httpRequest.getMethod().equals("PUT")) {
 			BookUpdateController controller = new BookUpdateController();
 			return controller.command(httpRequest);
-		} else if(httpRequest.getUrl().equals("/books/remove/아이디값") && httpRequest.getMethod().equals("DELETE")) {
+		} else if(httpRequest.getUrl().equals("/books/remove") && httpRequest.getMethod().equals("DELETE")) {
 			BookRemoveController controller = new BookRemoveController();
 			return controller.command(httpRequest);
 		} else if(httpRequest.getUrl().equals("/books") && httpRequest.getMethod().equals("GET")) {

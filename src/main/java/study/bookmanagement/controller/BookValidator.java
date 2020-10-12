@@ -1,6 +1,6 @@
 package study.bookmanagement.controller;
 
-import study.bookmanagement.servicce.Book;
+import study.bookmanagement.service.Book;
 import study.bookmanagement.util.validator.HasValueValidator;
 import study.bookmanagement.util.validator.NameLengthValidator;
 import study.bookmanagement.util.validator.PlusNumberValidator;

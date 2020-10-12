@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import study.bookmanagement.servicce.Book;
+import study.bookmanagement.service.Book;
 
 public class BookRepository {
 	Connection conn = null;

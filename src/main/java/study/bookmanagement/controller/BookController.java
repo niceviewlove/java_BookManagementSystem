@@ -1,8 +1,8 @@
 package study.bookmanagement.controller;
 import java.util.List;
 
-import study.bookmanagement.servicce.Book;
-import study.bookmanagement.servicce.BookService;
+import study.bookmanagement.service.Book;
+import study.bookmanagement.service.BookService;
 import study.bookmanagement.util.validator.PlusNumberValidator;
 import study.bookmanagement.util.validator.Validator;
 
