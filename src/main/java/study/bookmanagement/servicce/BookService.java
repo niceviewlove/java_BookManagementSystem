@@ -33,6 +33,11 @@ public class BookService {
 		List<Book> bookList = bookRepository.findByAll();
 		return bookList;
 	}
+
+	public Book findOne(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }
 
 
