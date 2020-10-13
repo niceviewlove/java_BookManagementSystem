@@ -12,7 +12,7 @@ public class CategoryListController implements Controller {
 	
 	@Override
 	public HttpResponse<List<Category>> command(HttpRequest httpRequest) {
-		List<Category> categoryList = categoryService.showCategoryList();
+		List<Category> categoryList = categoryService.getCategoryList();
 		
 		return new HttpResponse<>("200", categoryList);
 	}

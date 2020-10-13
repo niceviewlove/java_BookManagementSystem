@@ -12,7 +12,7 @@ public class BookListController implements Controller{
 	
 	@Override
 	public HttpResponse<List<Book>> command(HttpRequest httpRequest) {
-		List<Book> bookList = bookService.showBookList();
+		List<Book> bookList = bookService.getBookList();
 		
 //		System.out.println("제목\t\t저자\t\t재고\t\t출판년도\t\t가격");
 //		for(Book book : bookList) {

@@ -29,8 +29,8 @@ public class BookService {
 		bookRepository.deleteById(bookId);
 	}
 	
-	public List<Book> showBookList() {
-		List<Book> bookList = bookRepository.findByAll();
+	public List<Book> getBookList() {
+		List<Book> bookList = bookRepository.findAllBooks();
 		return bookList;
 	}
 

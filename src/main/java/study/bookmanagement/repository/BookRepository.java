@@ -94,7 +94,7 @@ public class BookRepository {
 		}
 	}
 	
-	public ArrayList<Book> findByAll() {
+	public ArrayList<Book> findAllBooks() {
 		ArrayList<Book> bookList = new ArrayList<Book>();
 		try {
 			String query = "select * from books";

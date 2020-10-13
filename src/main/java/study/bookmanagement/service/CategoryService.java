@@ -25,7 +25,7 @@ public class CategoryService {
 		categoryRepository.deleteById(categoryId);
 	}
 	
-	public List<Category> showCategoryList() {
+	public List<Category> getCategoryList() {
 		List<Category> categoryList = categoryRepository.findAllCategories();
 		return categoryList;
 	}
