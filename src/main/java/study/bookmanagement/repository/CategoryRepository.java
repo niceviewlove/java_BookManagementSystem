@@ -33,11 +33,10 @@ public class CategoryRepository {
 	
 	public void create(Category category) {
 		try {
-			String query = "INSERT INTO categories(category_number, category_name) VALUES(?, ?)";
+			String query = "INSERT INTO categories(categoryName) VALUES(?)";
 			
 			pstm = conn.prepareStatement(query);
-			pstm.setInt(1, category.getNumber());
-			pstm.setString(2, category.getName());
+			pstm.setString(1, category.getName());
 			pstm.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -52,12 +51,11 @@ public class CategoryRepository {
 	
 	public void update(Category category) {
 		try {
-			String query = "update categories set category_number=?, category_name=? where category_id=?";
+			String query = "update categories set categoryName=? where categoryId=?";
 
 			pstm = conn.prepareStatement(query);
-			pstm.setInt(1, category.getNumber());
-			pstm.setString(2, category.getName());
-			pstm.setInt(3, category.getId());
+			pstm.setString(1, category.getName());
+			pstm.setInt(2, category.getId());
 			pstm.executeUpdate();
 		} catch(SQLException e) {
 			e.printStackTrace();
@@ -72,7 +70,7 @@ public class CategoryRepository {
 	
 	public void deleteById(Integer categoryId) {
 		try {
-			String query = "delete from categories where category_id=?";
+			String query = "delete from categories where categoryId?";
 			pstm = conn.prepareStatement(query);
 			
 			pstm.setInt(1, categoryId);
@@ -98,9 +96,7 @@ public class CategoryRepository {
 			
 			while(rs.next()) {
 				Category category = new Category();
-				
-				category.setNumber((rs.getInt("category_number")));
-				category.setName(rs.getString("category_name"));
+				category.setName(rs.getString("categoryName"));
 				
 				categoryList.add(category);
 			}
@@ -113,7 +109,7 @@ public class CategoryRepository {
 	
 	public Category findOneById(Integer categoryId) {
 		try {
-			String query = "select * from categories where category_id = ?";
+			String query = "select * from categories where categoryId = ?";
 			pstm = conn.prepareStatement(query);
 
 			pstm.setInt(1, categoryId);
@@ -121,8 +117,7 @@ public class CategoryRepository {
 			
 			if(rs.next()) {
 				Category category = new Category();
-				category.setNumber(rs.getInt("category_number"));
-				category.setName(rs.getString("category_name"));
+				category.setName(rs.getString("categoryName"));
 			
 				return category;
 			}

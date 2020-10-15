@@ -11,11 +11,10 @@ public class CategoryUpdateController implements Controller {
 	
 	@Override
 	public HttpResponse<Integer> command(HttpRequest httpRequest) {
-		int categoryId = NumberUtils.parseInt(httpRequest.getAttribute("category_id"));
-		int categoryNumber = NumberUtils.parseInt(httpRequest.getAttribute("category_number"));
+		int categoryId = NumberUtils.parseInt(httpRequest.getAttribute("categoryId"));
 		String categoryName = httpRequest.getAttribute("category_name");
 		
-		Category category = new Category(categoryNumber, categoryName);
+		Category category = new Category(categoryName);
 		category.setId(categoryId);
 		categoryService.updateCategory(category);
 		

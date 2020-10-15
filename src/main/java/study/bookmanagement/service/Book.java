@@ -2,6 +2,7 @@ package study.bookmanagement.service;
 
 public class Book { 
 	private Integer id;
+	private Integer categoryId;
 	private String title;
 	private String author;
 	private Integer stock;
@@ -10,7 +11,8 @@ public class Book {
 	
 	public Book() {}
 	
-	public Book(String title, String author, Integer stock, Integer year, Integer price) {
+	public Book(Integer categoryId, String title, String author, Integer stock, Integer year, Integer price) {
+		this.categoryId = categoryId;
 		this.title = title;
 		this.author = author;
 		this.stock = stock;
@@ -18,12 +20,21 @@ public class Book {
 		this.price = price;
 	}
 
+
 	public Integer getId() {
 		return id;
 	}
 	
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public Integer getCategoryId() {
+		return categoryId;
+	}
+	
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
 	}
 
 	public String getTitle() {

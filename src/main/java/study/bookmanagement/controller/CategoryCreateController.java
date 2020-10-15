@@ -11,10 +11,9 @@ public class CategoryCreateController implements Controller {
 	
 	@Override
 	public HttpResponse<Integer> command(HttpRequest httpRequest) {
-		int categoryNumber = NumberUtils.parseInt(httpRequest.getAttribute("category_number"));
-		String categoryName = httpRequest.getAttribute("category_name");
+		String categoryName = httpRequest.getAttribute("categoryName");
 		
-		Category category = new Category(categoryNumber, categoryName);
+		Category category = new Category(categoryName);
 		categoryService.registerCategory(category);
 		
 		return new HttpResponse<>("200", category.getId());

@@ -13,6 +13,7 @@ public class BookUpdateController implements Controller {
 
 	@Override
 	public HttpResponse<Integer> command(HttpRequest httpRequest) {
+		int categoryIdNumber = NumberUtils.parseInt(httpRequest.getAttribute("category_id"));
 		String trimedTitle = StringUtils.trim(httpRequest.getAttribute("title"));
 		String trimedAuthor = StringUtils.trim(httpRequest.getAttribute("author"));
 		int bookIdNumber = NumberUtils.parseInt(httpRequest.getAttribute("bookId"));
@@ -21,7 +22,7 @@ public class BookUpdateController implements Controller {
 		int priceNumber = NumberUtils.parseInt(httpRequest.getAttribute("price"));	
 				
 		
-		Book book = new Book(trimedTitle, trimedAuthor, stockNumber, yearNumber, priceNumber);
+		Book book = new Book(categoryIdNumber, trimedTitle, trimedAuthor, stockNumber, yearNumber, priceNumber);
 		book.setId(bookIdNumber);
 		bookValidator.validate(book);
 		bookService.updateBook(book);

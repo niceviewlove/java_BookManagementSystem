@@ -13,20 +13,20 @@ public class BookCreateController implements Controller {
 	private BookService bookService = new BookService();
 	
 	@Override
-	public HttpResponse<Integer> command(HttpRequest httpRequest) {
-		// 등록하려는 책 정보들을 파싱..? 
-		
+	public HttpResponse<Integer> command(HttpRequest httpRequest) {		
+		int categoryIdNumber = NumberUtils.parseInt(httpRequest.getAttribute("category_id"));
 		String trimedTitle = StringUtils.trim(httpRequest.getAttribute("title"));
 		String trimedAuthor = StringUtils.trim(httpRequest.getAttribute("author"));
 		int stockNumber = NumberUtils.parseInt(httpRequest.getAttribute("stock"));
 		int yearNumber = NumberUtils.parseInt(httpRequest.getAttribute("year"));
 		int priceNumber = NumberUtils.parseInt(httpRequest.getAttribute("price"));
 
-		Book book = new Book(trimedTitle, trimedAuthor, stockNumber, yearNumber, priceNumber);
+		Book book = new Book(categoryIdNumber, trimedTitle, trimedAuthor, stockNumber, yearNumber, priceNumber);
 		bookValidator.validate(book);
 		bookService.registerBook(book);
 		
 		return new HttpResponse<>("200", book.getId());
+//		return new HttpResponse<>("200", 1);
 		
 	}
 }
