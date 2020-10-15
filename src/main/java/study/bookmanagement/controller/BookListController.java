@@ -7,18 +7,19 @@ import study.bookmanagement.HttpResponse;
 import study.bookmanagement.service.Book;
 import study.bookmanagement.service.BookService;
 
-public class BookListController implements Controller{
+public class BookListController implements Controller {
 	private BookService bookService = new BookService();
 	
 	@Override
 	public HttpResponse<List<Book>> command(HttpRequest httpRequest) {
-		List<Book> bookList = bookService.getBookList();
+		String params = httpRequest.getParameter("categoryId");
+		List<Book> bookList;
 		
-//		System.out.println("제목\t\t저자\t\t재고\t\t출판년도\t\t가격");
-//		for(Book book : bookList) {
-//			System.out.println(book.getTitle() + "\t\t" + book.getAuthor() + "\t\t" +
-//			    book.getStock() + "\t\t" + book.getYear() + "\t\t" + book.getPrice());
-//		}
+		if(params == null) {
+			bookList = bookService.getBookList();
+		} else {
+			bookList = bookService.getCategoryBookList(Integer.parseInt(params));
+		}
 		
 		return new HttpResponse<>("200", bookList);
 	}

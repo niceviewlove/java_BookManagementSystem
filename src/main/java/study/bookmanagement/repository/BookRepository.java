@@ -120,9 +120,36 @@ public class BookRepository {
 		return bookList;
 	}
 
+	public ArrayList<Book> findAllCategoryBooks(Integer categoryId) {
+		ArrayList<Book> bookList = new ArrayList<Book>();
+		
+		try {
+			String query = "select * from books where categoryId=?";
+			
+			pstm = conn.prepareStatement(query);
+			rs = pstm.executeQuery();
+			
+			while(rs.next()) {
+				Book book = new Book();
+				
+				book.setTitle(rs.getString("title"));
+				book.setAuthor(rs.getString("author"));
+				book.setStock(rs.getInt("stock"));
+				book.setYear(rs.getInt("year"));
+				book.setPrice(rs.getInt("price"));
+				
+				bookList.add(book);
+			}
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} 
+		
+		return bookList;
+	}
+	
 	public Book findOneById(Integer bookId) {
 		try {
-			String query = "select * from books where book_id=?";
+			String query = "select * from books where bookId=?";
 			pstm = conn.prepareStatement(query);
 
 			pstm.setInt(1, bookId);
