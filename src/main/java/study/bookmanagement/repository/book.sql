@@ -1,11 +1,11 @@
 create table books(
-  bookId int(11) not null auto_increment,
-  categoryId int(6) not null,
-  title varchar(100) not null,
-  author varchar(15) not null,
-  stock int(10) not null,
-  year int(4) not null, 
-  price int(8) not null,
+  bookId int(11) not null auto_increment COMMENT '책 ID',
+  categoryId int(6) not null COMMENT '카테고리 ID',
+  title varchar(100) not null COMMENT '제목',
+  author varchar(15) not null COMMENT '저자',
+  stock int(10) not null COMMENT '재고',
+  year int(4) not null COMMENT '출판 년도', 
+  price int(8) not null COMMENT '가격',
   primary key(bookId)
 ); 
 
