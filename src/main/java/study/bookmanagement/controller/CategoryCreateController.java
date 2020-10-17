@@ -7,11 +7,11 @@ import study.bookmanagement.service.CategoryService;
 import study.bookmanagement.util.NumberUtils;
 
 public class CategoryCreateController implements Controller {
-	private CategoryService categoryService = new CategoryService();
+	private CategoryService categoryService = CategoryService.getInstance();
 	
 	@Override
 	public HttpResponse<Integer> command(HttpRequest httpRequest) {
-		String categoryName = httpRequest.getAttribute("categoryName");
+		String categoryName = (String)httpRequest.getAttribute("categoryName");
 		
 		Category category = new Category(categoryName);
 		categoryService.registerCategory(category);

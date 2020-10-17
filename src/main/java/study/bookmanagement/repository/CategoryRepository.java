@@ -7,34 +7,28 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import study.bookmanagement.DBConnetctionCreator;
 import study.bookmanagement.service.Book;
 import study.bookmanagement.service.Category;
 
 public class CategoryRepository {
-	Connection conn = null;
-	PreparedStatement pstm = null;
-	ResultSet rs = null;
+	private static CategoryRepository categoryRepository = new CategoryRepository();
 	  
-	String sql = "";
+	private CategoryRepository() {		
+	}
 	
-	public CategoryRepository() {		
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			
-			String url = "jdbc:mysql://localhost/siondb";
-			conn = DriverManager.getConnection(url, "sion", "1234");
-			System.out.println("Connected to DB!");
-		} catch(ClassNotFoundException e) {
-			System.out.println("드라이버 로딩 실패");
-		} catch(Exception e) {
-			System.out.println("에러: "+e);
-		} 
+	public static CategoryRepository getInstance() {
+		return categoryRepository ;
 	}
 	
 	public void create(Category category) {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		
 		try {
+			conn = DBConnetctionCreator.getInstance().getConnection();
 			String query = "INSERT INTO categories(categoryName) VALUES(?)";
-			
+	
 			pstm = conn.prepareStatement(query);
 			pstm.setString(1, category.getName());
 			pstm.executeUpdate();
@@ -50,7 +44,11 @@ public class CategoryRepository {
 	}
 	
 	public void update(Category category) {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		
 		try {
+			conn = DBConnetctionCreator.getInstance().getConnection();
 			String query = "update categories set categoryName=? where categoryId=?";
 
 			pstm = conn.prepareStatement(query);
@@ -69,7 +67,11 @@ public class CategoryRepository {
 	}
 	
 	public void deleteById(Integer categoryId) {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		
 		try {
+			conn = DBConnetctionCreator.getInstance().getConnection();
 			String query = "delete from categories where categoryId?";
 			pstm = conn.prepareStatement(query);
 			
@@ -87,8 +89,13 @@ public class CategoryRepository {
 	}
 	
 	public ArrayList<Category> findAllCategories() {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		
 		ArrayList<Category> categoryList = new ArrayList<Category>();
 		try {
+			conn = DBConnetctionCreator.getInstance().getConnection();
 			String query = "select * from categories";
 			
 			pstm = conn.prepareStatement(query);
@@ -108,7 +115,12 @@ public class CategoryRepository {
 	}
 	
 	public Category findOneById(Integer categoryId) {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		
 		try {
+			conn = DBConnetctionCreator.getInstance().getConnection();
 			String query = "select * from categories where categoryId = ?";
 			pstm = conn.prepareStatement(query);
 

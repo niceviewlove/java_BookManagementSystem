@@ -8,11 +8,18 @@ import study.bookmanagement.service.Book;
 import study.bookmanagement.service.BookService;
 
 public class BookListController implements Controller {
-	private BookService bookService = new BookService();
+	private BookService bookService = BookService.getInstance();
 	
 	@Override
 	public HttpResponse<List<Book>> command(HttpRequest httpRequest) {
-		String params = httpRequest.getParameter("categoryId");
+		try {
+			System.out.println(System.currentTimeMillis() + " : " + getClass() + " : start");
+			Thread.sleep(10000);
+			System.out.println(System.currentTimeMillis() + " : " + getClass() + " : end");
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		String params = (String) httpRequest.getParameter("categoryId");
 		List<Book> bookList;
 		
 		if(params == null) {

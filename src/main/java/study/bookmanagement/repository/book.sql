@@ -6,6 +6,7 @@ create table books(
   stock int(10) not null COMMENT '재고',
   year int(4) not null COMMENT '출판 년도', 
   price int(8) not null COMMENT '가격',
+  created DATETIME COMMENT '등록날짜',
   primary key(bookId)
 ); 
 

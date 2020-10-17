@@ -6,31 +6,26 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import study.bookmanagement.DBConnetctionCreator;
 import study.bookmanagement.service.Book;
 import study.bookmanagement.service.Member;
 
 public class MemberRepository {
-	Connection conn = null;
-	PreparedStatement pstm = null;
-	ResultSet rs = null;
+	private static MemberRepository memberRepository = new MemberRepository();
 	
-	String sql = "";
+	private MemberRepository() {
+	}
 	
-	public MemberRepository() {
-		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost/siondb";
-			conn = DriverManager.getConnection(url, "sion", "1234");
-			System.out.println("Connected to DB!");
-		} catch(ClassNotFoundException e) {
-			System.out.println("드라이버 로딩 실패");
-		} catch(Exception e) {
-			System.out.println("에러: "+e);
-		} 
+	public static MemberRepository getInstance() {
+		return memberRepository ;
 	}
 	
 	public void create(Member member) {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		
 		try {
+			conn = DBConnetctionCreator.getInstance().getConnection();
 			String query = "INSERT INTO MEMBERS(name, gender, email, age, phone) VALUES(?, ?, ?, ?, ?)";
 
 			pstm = conn.prepareStatement(query);
@@ -52,7 +47,11 @@ public class MemberRepository {
 	}
 	
 	public void update(Member member) {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		
 		try {
+			conn = DBConnetctionCreator.getInstance().getConnection();
 			String query = "UPDATE members set name=?, gender=?, email=?, age=?, phone=? where member_id=?";
 			pstm = conn.prepareStatement(query);
 			pstm.setString(1, member.getName());
@@ -75,7 +74,11 @@ public class MemberRepository {
 	}
 	
 	public void deleteById(Integer memberId) {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		
 		try {
+			conn = DBConnetctionCreator.getInstance().getConnection();
 			String query = "DELETE FROM MEMBERS WHERE member_id" + "= ?";
 			
 			pstm = conn.prepareStatement(query);
@@ -93,8 +96,13 @@ public class MemberRepository {
 	}
 	
 	public ArrayList<Member> findByAll() {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		
 		ArrayList<Member> memberList = new ArrayList<Member>();
 		try {
+			conn = DBConnetctionCreator.getInstance().getConnection();
 			String query = "SELECT * FROM MEMBERS";
 
 			pstm = conn.prepareStatement(query);
@@ -119,7 +127,12 @@ public class MemberRepository {
 	}
 	
 	public Member findOneById(Integer memberId) {
+		Connection conn = null;
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		
 		try {
+			conn = DBConnetctionCreator.getInstance().getConnection();
 			String query = "SELECT * FROM MEMBERS " + "WHERE member_id LIKE ?";
 			pstm = conn.prepareStatement(query);
 			pstm.setInt(1, memberId);
@@ -135,7 +148,7 @@ public class MemberRepository {
 				return member;
 			}
 		} catch(SQLException e) {
-			e.printStackTrace();
+			throw new DataProcessException(e);
 		} finally {
 			if(pstm != null) {
 				try {

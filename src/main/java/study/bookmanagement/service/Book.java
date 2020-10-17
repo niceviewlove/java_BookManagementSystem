@@ -1,5 +1,7 @@
 package study.bookmanagement.service;
 
+import java.util.Date;
+
 public class Book { 
 	private Integer id;
 	private Integer categoryId;
@@ -9,18 +11,20 @@ public class Book {
 	private Integer year;
 	private Integer price;
 	private Category category;
+	private Date created;
 	
 	public Book() {}
 	
-	public Book(Integer categoryId, String title, String author, Integer stock, Integer year, Integer price) {
+	public Book(Integer categoryId, String title, String author, Integer stock, 
+			Integer year, Integer price, Date created) {
 		this.categoryId = categoryId;
 		this.title = title;
 		this.author = author;
 		this.stock = stock;
 		this.year = year;
 		this.price = price;
+		this.created = created;
 	}
-
 
 	public Integer getId() {
 		return id;
@@ -87,6 +91,7 @@ public class Book {
 		this.category = category;
 	}
 	
-	
-	
+	public Date getCreatedDate() {
+		return created;
+	}
 }

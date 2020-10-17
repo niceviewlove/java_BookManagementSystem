@@ -9,15 +9,15 @@ import study.bookmanagement.util.StringUtils;
 
 public class MemberCreateController implements Controller {
 	private MemberValidator memberValidator = new MemberValidator();
-	private MemberService memberService = new MemberService();
+	private MemberService memberService = MemberService.getInstance();
 	
 	@Override
 	public HttpResponse<Integer> command(HttpRequest httpRequest) {
-		String trimedName = StringUtils.trim(httpRequest.getAttribute("name"));
-		String trimedGender = StringUtils.trim(httpRequest.getAttribute("gender"));
-		String email = httpRequest.getAttribute("gender");
-		String phone = httpRequest.getAttribute("phone");
-		int ageNumber = NumberUtils.parseInt(httpRequest.getAttribute("ageNumber"));
+		String trimedName = StringUtils.trim((String)httpRequest.getAttribute("name"));
+		String trimedGender = StringUtils.trim((String)httpRequest.getAttribute("gender"));
+		String email = (String)httpRequest.getAttribute("gender");
+		String phone = (String)httpRequest.getAttribute("phone");
+		int ageNumber = NumberUtils.parseInt((String)httpRequest.getAttribute("ageNumber"));
 		
 		Member member = new Member(trimedName, trimedGender, email, ageNumber, phone);
 		memberValidator.validate(member);

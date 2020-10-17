@@ -6,8 +6,17 @@ import study.bookmanagement.repository.BookRepository;
 import study.bookmanagement.repository.CategoryRepository;
 
 public class BookService {
-	BookRepository bookRepository = new BookRepository();
-	CategoryRepository categoryRepository = new CategoryRepository();
+	private static BookService bookService = new BookService();
+	
+	private BookRepository bookRepository = BookRepository.getInstance();
+	private CategoryRepository categoryRepository = CategoryRepository.getInstance();
+	
+	private BookService() {
+	}
+	
+	public static BookService getInstance() {
+		return bookService;
+	}
 	
 	public void registerBook(Book book) {
 		bookRepository.create(book);

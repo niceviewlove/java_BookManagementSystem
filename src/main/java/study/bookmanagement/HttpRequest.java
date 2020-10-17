@@ -6,10 +6,10 @@ import java.util.Map;
 public class HttpRequest {
 	private String url;
 	private String method;
-	private Map<String, String> parameters;
-	private Map<String, String> attributes;
+	private Map<String, Object> parameters;
+	private Map<String, Object> attributes;
 	
-	public HttpRequest(String url, String method, Map<String, String> parameters, Map<String, String> attributes) {
+	public HttpRequest(String url, String method, Map<String, Object> parameters, Map<String, Object> attributes) {
 		if(url == null || url.length() == 0) {
 			throw new RuntimeException("url 값이 없습니다.");
 		}
@@ -32,14 +32,14 @@ public class HttpRequest {
 		return method;
 	}
 
-	public String getParameter(String key) {
+	public Object getParameter(String key) {
 		if (parameters == null) {
 			return null;
 		}
 		return parameters.get(key);
 	}
 	
-	public String getAttribute(String key) {
+	public Object getAttribute(String key) {
 		if (attributes == null) {
 			return null;
 		}

@@ -8,7 +8,7 @@ import study.bookmanagement.service.Category;
 import study.bookmanagement.service.CategoryService;
 
 public class CategoryListController implements Controller {
-	private CategoryService categoryService = new CategoryService();
+	private CategoryService categoryService = CategoryService.getInstance();
 	
 	@Override
 	public HttpResponse<List<Category>> command(HttpRequest httpRequest) {

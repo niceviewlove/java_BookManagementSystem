@@ -8,11 +8,11 @@ import study.bookmanagement.util.validator.PlusNumberValidator;
 import study.bookmanagement.util.validator.Validator;
 
 public class BookRemoveController implements Controller {
-	private BookService bookService = new BookService();
+	private BookService bookService = BookService.getInstance();
 	
 	@Override
 	public HttpResponse<Integer> command(HttpRequest httpRequest) {
-		int id = NumberUtils.parseInt(httpRequest.getAttribute("bookId"));
+		int id = NumberUtils.parseInt((String)httpRequest.getAttribute("bookId"));
 		
 		Validator<Integer> plusNumberValidater = new PlusNumberValidator();
 		plusNumberValidater.validate(id);

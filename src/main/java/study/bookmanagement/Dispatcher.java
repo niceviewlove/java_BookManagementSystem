@@ -5,9 +5,11 @@ import study.bookmanagement.controller.ControllerFactory;
 
 
 public class Dispatcher {
-	ControllerFactory controllerFactory;
+	private static Dispatcher dispatcher = new Dispatcher();
 	
-	public Dispatcher() {
+	private ControllerFactory controllerFactory;
+	
+	private Dispatcher() {
 		controllerFactory = new ControllerFactory();
 	}
 	
@@ -55,6 +57,10 @@ public class Dispatcher {
 //		}
 //		
 //		return null;
+	}
+
+	public static Dispatcher getInstance() {
+		return dispatcher;
 	}
 
 }

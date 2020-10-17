@@ -5,7 +5,15 @@ import java.util.List;
 import study.bookmanagement.repository.CategoryRepository;
 
 public class CategoryService {
-	CategoryRepository categoryRepository = new CategoryRepository();
+	private static CategoryService categoryService = new CategoryService();
+	private CategoryRepository categoryRepository = CategoryRepository.getInstance();
+	
+	private CategoryService() {
+	}
+	
+	public static CategoryService getInstance() {
+		return categoryService;
+	}
 	
 	public void registerCategory(Category category) {
 		categoryRepository.create(category);

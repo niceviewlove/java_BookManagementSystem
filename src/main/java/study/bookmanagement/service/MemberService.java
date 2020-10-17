@@ -5,7 +5,16 @@ import java.util.List;
 import study.bookmanagement.repository.MemberRepository;
 
 public class MemberService {
-	MemberRepository memberRepository = new MemberRepository();
+	private static MemberService memberService = new MemberService();
+	private MemberRepository memberRepository = MemberRepository.getInstance();
+	
+	
+	private MemberService() {
+	}
+	
+	public static MemberService getInstance() {
+		return memberService;
+	}
 	
 	public void registerMember(Member member) {
 		memberRepository.create(member);
