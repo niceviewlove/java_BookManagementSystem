@@ -8,6 +8,7 @@ public class Book {
 	private Integer stock;
 	private Integer year;
 	private Integer price;
+	private Category category;
 	
 	public Book() {}
 	
@@ -57,6 +58,7 @@ public class Book {
 		return stock;
 	}
 
+
 	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
@@ -75,6 +77,14 @@ public class Book {
 
 	public void setPrice(Integer price) {
 		this.price = price;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
 	}
 	
 	

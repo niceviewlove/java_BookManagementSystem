@@ -3,9 +3,11 @@ package study.bookmanagement.service;
 import java.util.List;
 
 import study.bookmanagement.repository.BookRepository;
+import study.bookmanagement.repository.CategoryRepository;
 
 public class BookService {
 	BookRepository bookRepository = new BookRepository();
+	CategoryRepository categoryRepository = new CategoryRepository();
 	
 	public void registerBook(Book book) {
 		bookRepository.create(book);
@@ -41,6 +43,8 @@ public class BookService {
 
 	public Book findOneBook(int id) {
 		Book book = bookRepository.findOneById(id);
+		Category category = categoryRepository.findOneById(book.getCategoryId());
+		book.setCategory(category);
 		return book;
 	}
 }
