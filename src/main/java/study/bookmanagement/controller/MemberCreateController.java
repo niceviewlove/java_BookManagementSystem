@@ -26,7 +26,6 @@ public class MemberCreateController implements Controller {
 		memberValidator.validate(member);
 		memberService.registerMember(member);
 		
-//		return new HttpResponse<>("200", member.getId());
 		return new HttpResponse<>("200", member.getId(), "member_success");
 	}
 	

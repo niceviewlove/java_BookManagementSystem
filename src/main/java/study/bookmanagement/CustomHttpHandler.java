@@ -7,7 +7,6 @@ public class CustomHttpHandler implements HttpHandler {
     public void handle(HttpExchange httpExchange) {
         //아래 로직을 쓰레드로 실행하도록 변경
         try {
-      	  System.out.println("httpExchange: " + httpExchange);
             Runnable runnable = new Excutor(httpExchange);
             Thread thread = new Thread(runnable);
             thread.start();
