@@ -10,6 +10,7 @@ public class EmailValidator implements Validator<String> {
 		
 		try {
 			if(!Pattern.matches("^([\\w-]+(?:\\.[\\w-]+)*)@((?:[\\w-]+\\.)*\\w[\\w-]{0,66})\\.([a-z]{2,6}(?:\\.[a-z]{2})?)$", content)) {
+				System.out.println("들어온 이메일주소"+content);
 				throw new ValidateException("올바르지 않은 이메일 형식");
 			}
 		} catch(Exception e) {

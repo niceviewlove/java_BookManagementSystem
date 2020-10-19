@@ -17,7 +17,6 @@ public class Dispatcher {
 		HttpRequest htttpRequest = new HttpRequest("/books/create", "POST", null, null);
 		Dispatcher dispatcher = new Dispatcher();
 		dispatcher.dispatch(htttpRequest);
-		dispatcher.dispatch(htttpRequest);
 	}
 
 	public HttpResponse<?> dispatch(HttpRequest httpRequest) {

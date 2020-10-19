@@ -15,6 +15,7 @@ public class ControllerFactory {
 		controllers.put("/books/list&GET", new BookListController());
 		controllers.put("/books/info&GET", new BookInfoController());
 		
+		controllers.put("/members/intro&GET", new MemberIntroController());
 		controllers.put("/members/form&GET", new MemberFormController());
 		controllers.put("/members/create&POST", new MemberCreateController());
 		controllers.put("/members/update&PUT", new MemberUpdateController());

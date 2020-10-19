@@ -13,11 +13,11 @@ public class MemberListController implements Controller{
 
 	@Override
 	public HttpResponse<?> command(HttpRequest httpRequest) {
-		Member member1 = new Member();
-		member1.setId(1);
-		member1.setName("name");
-//		List<Member> memberList = memberService.showMemberList();
-		List<Member> memberList = Arrays.asList(member1);
+//		Member member1 = new Member();
+//		member1.setId(1);
+//		member1.setName("name");
+		List<Member> memberList = memberService.showMemberList();
+//		List<Member> memberList = Arrays.asList(member1);
 		
 		for(Member member : memberList) {
 			System.out.println("이름\t\t성별\t\t이메일\t\t\t나이\t\t휴대폰 번호");
