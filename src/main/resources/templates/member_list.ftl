@@ -7,13 +7,13 @@
 	</style>
   </head>	
   <body>
-    <h1>Hello Sion</h1>
-    <div>
-      <a href="/members/form">Adding Member</a>
-	</div>
+  	<h1>이름 / 성별 / 나이 / 이메일 / 휴대폰</h1>
 	<#list body as item>
-	  <p>${item.name}</p>
-	  <p>${item.gender}</p>
+	  <div>${item.name}</div>
+	  <div>${item.gender}</div>
+	  <div>${item.age}</div>
+	  <div>${item.email}</div>
+	  <div>${item.phone}</div>
 	</#list>
   </body>
 </html>

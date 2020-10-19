@@ -399,8 +399,8 @@ ol, ul {
         <div class="join-signup-container">
             <div class="signup-container">
             	<p class="signup-guide">새로운 멤버 등록 성공!</p>
-			<button class="button"><span>등록된 멤버 보기</span></button>
-			<button class="button"><span>초기화면으로</span></button>
+			<a href="./list"><button class="button"><span>등록된 멤버 보기</span></button></a>
+			<a href="./intro"><button class="button"><span>초기화면으로</span></button></a>
 			</div>
         </div>
     </div>

@@ -99,7 +99,7 @@
 				  <a href="./form" method="GET" class="btn-signup join-arr" role="button">Member 등록하기 ></a>
 				  <a class="btn-signup join-arr" role="button">Member 삭제하기 ></a>
 				  <a class="btn-signup join-arr" role="button">Member 수정하기 ></a>
-				  <a class="btn-signup join-arr" role="button">Member 전체보기></a>							
+				  <a href="./list" method="GET" class="btn-signup join-arr" role="button">Member 전체보기></a>							
 			  </div>
 			</div>
 		  </div>
